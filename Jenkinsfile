@@ -9,7 +9,7 @@ node('worker') {
           echo 'ssh -i '"${CDPE_SSH_KEY}"' $*' > ssh
           chmod +x ssh
           export GIT_SSH='./ssh'
-          git checkout production
+          git checkout ${BRANCH_NAME}
 
           echo 'pushing to gitlab'
           git remote add gitlab git@cdpe-gitlab-test-1.delivery.puppetlabs.net:cdpe_unit_tests/cdpe-2017-3-pe-master-1-control.git || true
